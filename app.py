@@ -53,7 +53,7 @@ def predict_api():
         else:
             result = float(predict(new_df).strip())
             message = {
-                "Predicted price": round(result, 2)
+                "Predicted_price": round(result, 2)
             }
             return jsonify(message)
     elif request.method == "GET":
