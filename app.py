@@ -5,8 +5,6 @@ import pickle
 from pipeline.predict.prediction import predict
 from pipeline.preprocessing.cleaning_data import preprocess
 import pipeline.model as model
-from flask_cors import CORS
-CORS(app, resources=r'/*', allow_headers='Content-Type')
 
 app = Flask(__name__)
 
@@ -53,7 +51,7 @@ def predict_api():
         else:
             result = float(predict(new_df).strip())
             message = {
-                "Predicted_price": round(result, 2)
+                "Predicted price": round(result, 2)
             }
             return jsonify(message)
     elif request.method == "GET":
